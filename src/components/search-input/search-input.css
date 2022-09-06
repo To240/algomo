@@ -1,0 +1,27 @@
+
+
+.searchContainer{
+    border: 1px solid red;
+
+}
+
+.searchText { 
+    margin-bottom: 1em;
+}
+
+.searchInput {
+
+  
+}
+
+.enabledInput {
+    background-color: yellow;
+    color: black;
+
+}
+
+.disabledInput {
+    background-color: yellow 0.2;
+    color: black 0.2;
+}
+
