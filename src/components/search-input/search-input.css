@@ -1,27 +1,80 @@
 
 
 .searchContainer{
-    border: 1px solid red;
+
 
 }
 
 .searchText { 
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+    margin-top: 1em;
 }
 
 .searchInput {
+    padding: 0.5em;
+    border: 1px solid #E0E6EC;
 
   
 }
 
-.enabledInput {
-    background-color: yellow;
-    color: black;
+.searchInput:focus{
+    outline-color: skyblue;
+}
 
+.searchInput::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #DDDDDD;
+    opacity: 1; /* Firefox */
+  }
+
+.searchList{
+    padding: 0;
+    border: 1px solid #E0E6EC;
+    border-top: none;
+    margin-top: 0;
+    padding-bottom: 0.5em;
+    width: 182px;
+    height: 30vh;
+    overflow-y: scroll;
+    overflow-x:initial;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    cursor: pointer;
+}
+
+.searchList::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.searchListInput{
+    padding: 0;
+    margin-left: 0.5em;
+    list-style-type: none;
+    font-weight: bold;
+    border-radius: 5px;
+    
+}
+
+.searchListInput:hover{
+    background-color: #E0E6EC;
+}
+
+.enabledInput {
+    margin-left: 0.5em;
+    font-size: 12px;
+    background-color: #FCD116;
+    border: 1px solid #FCD116; 
+    color: black;
+    padding: 0.65em;
+    cursor: pointer;
+    height: 29px;
 }
 
 .disabledInput {
-    background-color: yellow 0.2;
-    color: black 0.2;
+    margin-left: 0.5em;
+    font-size: 12px;
+    background-color: #FCF0BD;
+    border: #FCF0BD;
+    color: #D2C89D;
+    padding: 0.65em;
 }
 

@@ -12,6 +12,10 @@
     "@types/react-dom": "^18.0.5",
     "axios": "^0.27.2",
     "blueimp-md5": "^2.19.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "dotenv": "^16.0.2",
+    "nodemon": "^2.0.19",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-scripts": "5.0.1",
@@ -19,7 +23,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts start && nodemon server",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -43,6 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@types/blueimp-md5": "^2.18.0"
+    "@types/blueimp-md5": "^2.18.0",
+    "@types/crypto-js": "^4.1.1"
   }
 }

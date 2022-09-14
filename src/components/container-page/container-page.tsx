@@ -1,53 +1,30 @@
-import React, {useState, useEffect} from 'react';
-import SearchInput from '/Users/tomasosborne/Desktop/algomo/src/components/search-input/search-input'
+import React, { useState, useEffect } from 'react';
+import SearchInput from '../search-input/search-input'
 import './container-page.css'
-import axios from 'axios'
-import md5 from "blueimp-md5"
+import useRetrieveCharacters from '../data-retriever/dataRetriever'
 
 function ContainerPage() {
-
-const [marvelCharacters, setMarvelCharacters] = useState([])
-const [loading, setLoading] = useState(false)
-const publicKey = 'bb96723d0281f207e37cd9a44a9f3ae2'
-const privateKey = 'a19aed915c9e1143e174c13763e45cccc6e73542'
-const ts = new Date().getTime();
-const stringToHash = ts + privateKey + publicKey;
-const hash = md5(stringToHash);
-const baseUrl = 'https://gateway.marvel.com:443/v1/public/characters';
-const url = baseUrl + '&ts=' + ts + '&apikey=' + publicKey + '&hash=' + hash;
-interface RequestParameters {
-
-}
-
-const requestParameters: RequestParameters = {
+  // recieve the destructured state from the retriever characters custom hook
+  const { loading, characters, errors } = useRetrieveCharacters();
+  // input state that handles the input the user gives via onChange
+  const [input, setInput] = useState('')
+  // inputSelected state, is updated when the user clicks an option in the dropdown
+  const [inputSelected, setInputSelected] = useState(false)
 
 
-}
 
 
-    // retrieve the list of heroes on initial render
-    useEffect(() => {
-    // promise based rather than async purely as it's easier to read, and report errors.
-    axios.get(url)
-    .then((response) => {
-        setMarvelCharacters(response.data)
-        console.log(response);
-      }, (error) => {
-        console.log(error);
-      });   
-
-    }, [])
-
-return(
+  return (
     <div className="searchInputContainer">
-        { loading 
-        ? 
-        <div>Retrieving Marvel characters, please wait...</div>
-        :
-        <SearchInput />
-        }
+      {loading
+        ?
+        <div>We are currently loading the Marvel characters, please wait.</div>
+        : errors ? <div>😔 There was an error when retrieving the data for this page 😔</div>
+          :
+          <SearchInput marvelCharacters={characters} setInput={setInput} input={input} inputSelected={inputSelected} setInputSelected={setInputSelected} />
+      }
     </div>
-)
+  )
 
 }
 
